@@ -16,7 +16,8 @@ public class ItemEntity {
     }
 
     public Double getPrice() {
-        return price;
+        Double newPrice = price + price * discount;
+        return newPrice;
     }
 
     public void setPrice(Double price) {
