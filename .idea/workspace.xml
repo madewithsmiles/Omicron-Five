@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cfe7c9e6-8ba6-4332-a3fe-16ad9ec47b6d" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="cfe7c9e6-8ba6-4332-a3fe-16ad9ec47b6d" name="Default" comment="Added I">
+      <change beforePath="$PROJECT_DIR$/src/edu/ttu/cs/se/entity/InventoryEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/ttu/cs/se/entity/InventoryEntity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/edu/ttu/cs/se/entity/ItemEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/ttu/cs/se/entity/ItemEntity.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -33,18 +33,32 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ItemEntity.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="InventoryEntity.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/edu/ttu/cs/se/entity/InventoryEntity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="16" column="52" selection-start-line="16" selection-start-column="52" selection-end-line="16" selection-end-column="52" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#228#229#0" expanded="true" />
+                <element signature="e#267#268#0" expanded="true" />
+                <element signature="e#434#435#0" expanded="true" />
+                <element signature="e#462#463#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ItemEntity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/edu/ttu/cs/se/entity/ItemEntity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="12" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
+            <state relative-caret-position="391">
+              <caret line="23" column="27" lean-forward="true" selection-start-line="23" selection-start-column="27" selection-end-line="23" selection-end-column="27" />
               <folding>
                 <element signature="e#180#181#0" expanded="true" />
                 <element signature="e#207#208#0" expanded="true" />
                 <element signature="e#247#248#0" expanded="true" />
                 <element signature="e#279#280#0" expanded="true" />
-                <element signature="e#311#312#0" expanded="true" />
-                <element signature="e#339#340#0" expanded="true" />
                 <element signature="e#381#382#0" expanded="true" />
                 <element signature="e#415#416#0" expanded="true" />
                 <element signature="e#446#447#0" expanded="true" />
@@ -87,6 +101,7 @@
         <option value="$PROJECT_DIR$/src/edu/ttu/cs/se/control/Timer.java" />
         <option value="$PROJECT_DIR$/src/edu/ttu/cs/se/uinterface/CheckoutUI.java" />
         <option value="$PROJECT_DIR$/src/edu/ttu/cs/se/entity/ItemEntity.java" />
+        <option value="$PROJECT_DIR$/src/edu/ttu/cs/se/entity/InventoryEntity.java" />
       </list>
     </option>
   </component>
@@ -237,6 +252,9 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <option name="LAST_COMMIT_MESSAGE" value="" />
+  </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor" />
@@ -273,13 +291,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="24" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/edu/ttu/cs/se/entity/InventoryEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="22" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
         </state>
       </provider>
     </entry>
@@ -334,15 +345,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/edu/ttu/cs/se/entity/ItemEntity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="12" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
+        <state relative-caret-position="391">
+          <caret line="23" column="27" lean-forward="true" selection-start-line="23" selection-start-column="27" selection-end-line="23" selection-end-column="27" />
           <folding>
             <element signature="e#180#181#0" expanded="true" />
             <element signature="e#207#208#0" expanded="true" />
             <element signature="e#247#248#0" expanded="true" />
             <element signature="e#279#280#0" expanded="true" />
-            <element signature="e#311#312#0" expanded="true" />
-            <element signature="e#339#340#0" expanded="true" />
             <element signature="e#381#382#0" expanded="true" />
             <element signature="e#415#416#0" expanded="true" />
             <element signature="e#446#447#0" expanded="true" />
@@ -357,6 +366,20 @@
             <element signature="e#761#762#0" expanded="true" />
             <element signature="e#809#810#0" expanded="true" />
             <element signature="e#849#850#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/edu/ttu/cs/se/entity/InventoryEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="52" selection-start-line="16" selection-start-column="52" selection-end-line="16" selection-end-column="52" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#228#229#0" expanded="true" />
+            <element signature="e#267#268#0" expanded="true" />
+            <element signature="e#434#435#0" expanded="true" />
+            <element signature="e#462#463#0" expanded="true" />
           </folding>
         </state>
       </provider>
