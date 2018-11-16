@@ -3,12 +3,20 @@ package edu.ttu.cs.se.entity;
 public class ItemEntity {
     private String name;
     private Double price;
-    private String desc;
     private Boolean alcohol;
+    private String desc;
     private Double discount;
 
+    public ItemEntity(String name, Double price, Boolean alcohol, String desc, Double discount) {
+        this.name = name;
+        this.price = price;
+        this.desc = desc;
+        this.alcohol = alcohol;
+        this.discount = discount;
+    }
+
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public void setName(String name) {
@@ -25,7 +33,7 @@ public class ItemEntity {
     }
 
     public String getDesc() {
-        return desc;
+        return this.desc;
     }
 
     public void setDesc(String desc) {
@@ -33,7 +41,7 @@ public class ItemEntity {
     }
 
     public Boolean getAlcohol() {
-        return alcohol;
+        return this.alcohol;
     }
 
     public void setAlcohol(Boolean alcohol) {
@@ -41,7 +49,7 @@ public class ItemEntity {
     }
 
     public Double getDiscount() {
-        return discount;
+        return this.discount;
     }
 
     public void setDiscount(Double discount) {
