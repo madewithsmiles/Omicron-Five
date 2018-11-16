@@ -1,6 +1,7 @@
 package edu.ttu.cs.se.applogic;
 
 import edu.ttu.cs.se.entity.InventoryEntity;
+import edu.ttu.cs.se.uinterface.RestockerUI;
 
 public class RestockInventoryLogic
 {
@@ -17,6 +18,10 @@ public class RestockInventoryLogic
         if (checkItem(name))
         {
             InventoryEntity.addItems(name, quantity);
+        }
+        else
+        {
+            RestockerUI.newItem();
         }
     }
 
