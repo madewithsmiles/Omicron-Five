@@ -6,6 +6,10 @@ import java.util.Scanner;
 
 public class RestockerUI {
 
+
+    /**
+     *
+     */
     public static void scanItems()
     {
         Scanner scanner = new Scanner(System.in);

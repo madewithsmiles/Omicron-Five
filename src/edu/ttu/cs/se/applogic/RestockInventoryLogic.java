@@ -4,7 +4,14 @@ import edu.ttu.cs.se.entity.InventoryEntity;
 
 public class RestockInventoryLogic
 {
-    // Checks to see if the item name is an item in inventory, and updates it if it is.
+
+    /**
+     * If the item name exists in inventory, add
+     * a certain amount to it.
+     *
+     * @param name name of the item to add
+     * @param quantity amount of the item to add
+     */
     public static void processRestock(String name, int quantity)
     {
         if (checkItem(name))
