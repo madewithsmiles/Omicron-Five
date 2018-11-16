@@ -1,6 +1,9 @@
 package edu.ttu.cs.se.entity;
 
 public class ItemEntity {
+    public static final String COL_SEP = "|";
+    private static final String INDICATOR = "...";
+    private static final Integer OUT_LENGTH = 25;
     private String name;
     private Double price;
     private Boolean alcohol;
@@ -54,5 +57,48 @@ public class ItemEntity {
 
     public void setDiscount(Double discount) {
         this.discount = discount;
+    }
+
+    private String prepareString(String a, Integer length) {
+        Integer endIndex = a.length() + INDICATOR.length();
+        String preparedString;
+
+        if (endIndex <= length) {
+            preparedString = a.substring(0,endIndex).concat(INDICATOR);
+        } else {
+            preparedString = a.substring(
+                    0,
+                    length - INDICATOR.length()
+                                ).concat(INDICATOR);
+        }
+
+        return preparedString;
+    }
+
+    public String getString(Boolean dispAlcohol, Boolean dispDiscount) {
+        StringBuilder sb = new StringBuilder();
+        String[] info = new String[]{
+                prepareString(String.valueOf(getName()), OUT_LENGTH),
+                prepareString(String.valueOf(getDesc()), OUT_LENGTH),
+                String.valueOf(getPrice()),
+                String.valueOf(getAlcohol()),
+                String.valueOf(getDiscount())};
+
+        for (int i = 0; i < info.length; i++) {
+
+            if ((i == 3 && !dispAlcohol) || (i == 4 && !dispDiscount))
+                continue;
+
+            sb.append(String.format("%-25s",info[i]));
+            sb.append(COL_SEP);
+
+        }
+
+        return sb.toString();
+    }
+
+    @Override
+    public String toString() {
+        return getString(false,false);
     }
 }
