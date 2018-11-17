@@ -17,8 +17,8 @@ public class InventoryEntity {
     // curl "https://api.mockaroo.com/api/e7ea3110?count=1000&key=164ae7f0" > "initialItems.csv"
     // curl "https://api.mockaroo.com/api/9f774950?count=1000&key=164ae7f0" > "initialItems1.csv"
     // It will replace the current value with initialItems
-    static final String DATABASE_NAME = "initialItems.csv";
-    static private HashMap<String, Pair<ItemEntity, Integer>> items = null;
+    static final String DATABASE_NAME = "initialItems1.csv";
+    static private HashMap<String, Pair<ItemEntity, Integer[]>> items = null;
 
     public InventoryEntity() {
         initialize();
@@ -47,12 +47,12 @@ public class InventoryEntity {
                     String desc = info[3].trim();
                     Double disc = Double.parseDouble(info[4]);
                     Integer qty = Integer.parseInt(info[5]);
-
+                    Integer dQty = Integer.parseInt(info[6]);
                     // Populate the HashMap with parsed input
                     items.put(name,
                             new Pair<>(
                                     new ItemEntity(name,price,alcohol,desc,disc),
-                                    qty
+                                    new Integer[]{qty, dQty}
                             )
                     );
                 }
@@ -70,7 +70,7 @@ public class InventoryEntity {
      * @return     the quantity of the item with the specified name
      */
     public static Integer getQuantity(String name) {
-        return items.get(name.toLowerCase()).getValue();
+        return items.get(name.toLowerCase()).getValue()[0];
     }
 
     /**
@@ -79,14 +79,17 @@ public class InventoryEntity {
      * @param name the name of the item
      * @param qty the quantity we would like to add by
      */
-    public void addItems(String name, Integer qty) {
-        Integer newQty = qty + items.get(name).getValue();
+    public static void addItems(String name, Integer qty) {
+        Integer newQty = qty + items.get(name).getValue()[0];
         newQty = newQty < 0 ? 0 : newQty;
+        Pair<ItemEntity, Integer[]> item = items.get(name.toLowerCase());
+        item.getValue()[0] = newQty;
 
-        items.put(name.toLowerCase(),
-                new Pair<ItemEntity,Integer>(
-                        items.get(name).getKey(),
-                        newQty));
+        items.put(name.toLowerCase(),item);
+    }
+
+    public static void addNewItem(ItemEntity item, Integer qty, Integer dQty) {
+        items.put(item.getName().toLowerCase(), new Pair<>(item, new Integer[]{qty, dQty}));
     }
 
     /**
@@ -97,7 +100,7 @@ public class InventoryEntity {
      * @param name the name of the item
      * @param qty the quantity we would like to remove
      */
-    public void removeItems(String name, Integer qty) {
+    public static void removeItems(String name, Integer qty) {
         addItems(name, -qty);
     }
 
@@ -110,4 +113,9 @@ public class InventoryEntity {
     public ItemEntity getItem(String name) {
         return items.get(name.toLowerCase()).getKey();
     }
+
+//    public String getString(Boolean includeName, Boolean includePrice, Boolean includeAlcohol,
+//                            Boolean include)
+
+
 }
