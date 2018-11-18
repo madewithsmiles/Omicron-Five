@@ -1,15 +1,22 @@
-/**
- * @author Justin Aguilar
- * created 11/17/2018
- */
 package edu.ttu.cs.se.uinterface;
 
 import edu.ttu.cs.se.applogic.CheckoutLogic;
 import edu.ttu.cs.se.applogic.IOHelper;
 import edu.ttu.cs.se.systeminterface.ReceiptPrinterInterface;
+import java.text.DecimalFormat;
 
-
+/**
+ * The User Interface class implementic displaying and inputting logic
+ * for the checkout use case.
+ *
+ * @author Justin Aguilar
+ * created on 11/17/2018
+ */
 public class CheckoutUI {
+    /**
+     * Enum class containing possible values passed to display
+     * function.
+     */
     public enum DisplayCode {
         WELCOME,
         NORMAL,
@@ -17,13 +24,21 @@ public class CheckoutUI {
         RECEIPT,
     }
 
+    /**
+     * Displays a message to the client accordingly to an enum
+     * value from DisplayCode.
+     *
+     * @param code the value from the DisplayCode enum.
+     * @param info an optional parameter which is needed in some cases.
+     */
     public static void display(DisplayCode code, String info) {
         String output = "";
         switch (code) {
             case NORMAL:
-                output = "Your order: \n\n" +
-                        CheckoutLogic.getOrderContent() + "\n\n" + CheckoutLogic.getSubTotal() + "\n\n" +
-                        "1. Scan Item\n2. Total & Payment\n3. Cancel Order\n";
+                output = "Your order: \n\n"
+                        + CheckoutLogic.getOrderContent() + "\n\n"
+                        + new DecimalFormat("###.##").format(CheckoutLogic.getSubTotal())
+                        + "\n\n1. Scan Item\n2. Total & Payment\n3. Cancel Order\n";
                 break;
             case WELCOME:
                 output = "Welcome, Please press start to begin your order.";
@@ -37,27 +52,36 @@ public class CheckoutUI {
         System.out.println(output);
     }
 
+    /**
+     * Implements item scan display and input processes.
+     */
     public static void scanItem()
     {
         String item = IOHelper.getInputString("Enter your item");
-        //System.out.println("Item entered: " + item);
         boolean alcohol = CheckoutLogic.addItem(item);
         if (!alcohol)
         {
-            String auth = IOHelper.getInputString("Manager Authorization Required");
+            String auth = IOHelper.getInputString("Employee Authorization Required");
             while (!CheckoutLogic.verifyEmployeeID(auth))
             {
                 System.out.println("Error in code...");
-                auth = IOHelper.getInputString("Manager Authorization Required");
+                auth = IOHelper.getInputString("Employee Authorization Required");
             }
-            alcohol = CheckoutLogic.addItem(item);
+            CheckoutLogic.addItem(item);
         }
     }
 
+    /**
+     * Initiates the checkout process by calling a special CheckoutLogic class method.
+     */
     public static void startCheckout() {
         CheckoutLogic.createOrder();
     }
 
+    /**
+     * Acts as a "total" button used by the customer to end the checkout and pay for
+     * the items.
+     */
     public static void total()
     {
         boolean paymentStatus = false;

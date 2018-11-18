@@ -1,8 +1,17 @@
 package edu.ttu.cs.se.systeminterface;
 
+/**
+ * An Interface to communicate with the Bank and authorize
+ * transactions
+ *
+ * @author Justin Aguilar
+ * created on 11/17/2018
+ */
 public class BankInterface
 {
-
+    /**
+     * An integer acting as a custom authorization number
+     */
     private static int authNumCounter = 1000;
 
     /**
