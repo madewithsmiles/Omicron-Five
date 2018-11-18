@@ -179,6 +179,12 @@ public class IOHelper {
         System.out.println();
     }
 
+    /**
+     * Formats currency according to the Location. Should print $ in the US.
+     *
+     * @param num number to be formatted
+     * @return formatted string
+     */
     public static String formatCurrency(Double num) {
         return NumberFormat.getCurrencyInstance().format(num);
     }
