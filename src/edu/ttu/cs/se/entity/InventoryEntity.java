@@ -52,15 +52,15 @@ public class InventoryEntity {
             while ((line = br.readLine()) != null) {
 
                 String[] info = line.split(separator);
-                if(!info[0].equals("Name")) {
+                if(!info[0].trim().equals("Name")) {
                     // Parse input
-                    String name = info[0].toLowerCase();
-                    Double price = Double.parseDouble(info[1]);
-                    Boolean alcohol = Double.parseDouble(info[2]) == 1;
+                    String name = info[0].trim().toLowerCase();
+                    Double price = Double.parseDouble(info[1].trim());
+                    Boolean alcohol = Double.parseDouble(info[2].trim()) == 1;
                     String desc = info[3].trim();
-                    Double disc = Double.parseDouble(info[4]);
-                    Integer qty = Integer.parseInt(info[5]);
-                    Integer dQty = Integer.parseInt(info[6]);
+                    Double disc = Double.parseDouble(info[4].trim());
+                    Integer qty = Integer.parseInt(info[5].trim());
+                    Integer dQty = Integer.parseInt(info[6].trim());
                     // Populate the HashMap with parsed input
                     items.put(name,
                             new Pair<>(
@@ -127,18 +127,45 @@ public class InventoryEntity {
         return items.get(name.toLowerCase()).getKey();
     }
 
+    /**
+     * Retrieves an array list of strings containing the keys to an InventoryEntity
+     *
+     * @return ArrayList the list of all keys to an InventoryEntity
+     */
+
     public static ArrayList<String> getKeys(){
         return new ArrayList<>(items.keySet());
     }
+
+    /**
+     * Checks for the existence of an item in an InventoryEntity
+     *
+     * @param name the name of the item to check
+     * @return      the result of whether the item exists in the InventoryEntity
+     */
 
     public static Boolean exists(String name) {
         return items.containsKey(name);
     }
 
+    /**
+     * Retrieves ItemEntity, quantity and desired quantity given item name
+     *
+     * @param prodName item name to be retrieved
+     * @return ItemEntity, quantity and desired quantity for given item name
+     */
+
     public static Pair<ItemEntity, Integer[]> getInfo(String prodName) {
         return items.get(prodName.toLowerCase());
     }
 
+    /**
+     *
+     *
+     * @param item
+     * @param quantitiy
+     * @param desiredQuantity
+     */
     public static void setInfo(ItemEntity item, int quantitiy, int desiredQuantity) {
         items.put(item.getName(), new Pair<>(item, new Integer[]{quantitiy, desiredQuantity}));
     }

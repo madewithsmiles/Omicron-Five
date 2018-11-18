@@ -102,7 +102,7 @@ public class CheckoutLogic {
                 String[] info = line.split(separator);
                 if(!info[0].equals("employeeID")) {
                     // Populate the list with parsed input
-                    employeeIDs.add(info[0]);
+                    employeeIDs.add(info[0].trim());
                 }
             }
 
