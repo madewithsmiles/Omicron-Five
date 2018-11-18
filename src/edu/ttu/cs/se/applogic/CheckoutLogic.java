@@ -140,8 +140,17 @@ public class CheckoutLogic {
      * @param item the ItemEntity element being added to the Order
      * @return whether an item was added
      */
-    public static Boolean addItem(String item) {
-        return currentOrder.addItem(InventoryEntity.getItem(item),isAuthorized);
+    public static InventoryEntity.ItemStatus addItem(String item) {
+        if (!InventoryEntity.exists(item)) {
+            return InventoryEntity.ItemStatus.INEXISTENT;
+        }
+        else {
+            if (!currentOrder.addItem(InventoryEntity.getItem(item),isAuthorized)) {
+                return InventoryEntity.ItemStatus.ISALCOHOL;
+            }
+
+            return InventoryEntity.ItemStatus.GOOD;
+        }
     }
 
     /**

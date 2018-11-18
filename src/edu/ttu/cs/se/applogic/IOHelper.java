@@ -53,7 +53,13 @@ public class IOHelper {
 
         while (true) {
             displayMessage(message);
-            int output = Integer.parseInt(scanner.nextLine().trim());
+            int output;
+            try {
+                output = Integer.parseInt(scanner.nextLine().trim());
+            } catch (Exception e) {
+                System.out.println("Invalid input. Integers only, please try again.");
+                continue;
+            }
             if (negativesAllowed || output >= 0) {
                 System.out.println();
                 return output;
@@ -76,7 +82,13 @@ public class IOHelper {
 
         while (true) {
             displayMessage(message);
-            double output = Double.parseDouble(scanner.nextLine().trim());
+            double output;
+            try {
+                output = Double.parseDouble(scanner.nextLine().trim());
+            } catch (Exception e) {
+                System.out.println("Invalid input. Decimal only, please try again.");
+                continue;
+            }
             if (negativesAllowed || output >= 0.0) {
                 System.out.println();
                 return output;
@@ -99,7 +111,13 @@ public class IOHelper {
 
         while (true) {
             displayMessage(message);
-            int output = Integer.parseInt(scanner.nextLine().trim());
+            int output;
+            try {
+                output = Integer.parseInt(scanner.nextLine().trim());
+            } catch (Exception e) {
+                System.out.println("Invalid input. Integers only, please try again.");
+                continue;
+            }
             if (output >= min && output <= max) {
                 System.out.println();
                 return output;
@@ -122,10 +140,17 @@ public class IOHelper {
 
         while (true) {
             displayMessage(message);
-            String output = scanner.nextLine().toLowerCase().trim();
-            if (output.length() == length) {
+            String raw = scanner.nextLine().toLowerCase().trim();
+            if (raw.length() == length) {
                 System.out.println();
-                return Integer.parseInt(output);
+                int output;
+                try {
+                    output = Integer.parseInt(raw);
+                    return output;
+                } catch (Exception e) {
+                    System.out.println("Invalid input. Integers only, please try again.");
+                    continue;
+                }
             } else {
                 System.out.println(String.format("Invalid input. Input length must be of length %d.", length));
             }

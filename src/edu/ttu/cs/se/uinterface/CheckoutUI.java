@@ -2,6 +2,7 @@ package edu.ttu.cs.se.uinterface;
 
 import edu.ttu.cs.se.applogic.CheckoutLogic;
 import edu.ttu.cs.se.applogic.IOHelper;
+import edu.ttu.cs.se.entity.InventoryEntity;
 import edu.ttu.cs.se.systeminterface.ReceiptPrinterInterface;
 import java.text.DecimalFormat;
 
@@ -58,16 +59,24 @@ public class CheckoutUI {
     public static void scanItem()
     {
         String item = IOHelper.getInputString("Enter your item");
-        boolean alcohol = CheckoutLogic.addItem(item);
-        if (!alcohol)
+        InventoryEntity.ItemStatus status = CheckoutLogic.addItem(item);
+        if (!status.equals(InventoryEntity.ItemStatus.GOOD))
         {
-            String auth = IOHelper.getInputString("Employee Authorization Required");
-            while (!CheckoutLogic.verifyEmployeeID(auth))
-            {
-                System.out.println("Error in code...");
-                auth = IOHelper.getInputString("Employee Authorization Required");
+            switch (status) {
+                case ISALCOHOL:
+                    String auth = IOHelper.getInputString("Employee Authorization Required");
+                    while (!CheckoutLogic.verifyEmployeeID(auth))
+                    {
+                        System.out.println("Error in code...");
+                        auth = IOHelper.getInputString("Employee Authorization Required");
+                    }
+                    CheckoutLogic.addItem(item);
+                    break;
+                case INEXISTENT:
+                    System.out.println("Where did you take this? We don't have that [Ryan's voice tone].");
+                    scanItem();
+                    return;
             }
-            CheckoutLogic.addItem(item);
         }
     }
 

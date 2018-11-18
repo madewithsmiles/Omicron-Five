@@ -23,6 +23,12 @@ public class InventoryEntity {
     static final String DATABASE_NAME = "initialItems1.csv";
     static private HashMap<String, Pair<ItemEntity, Integer[]>> items = null;
 
+    public enum ItemStatus {
+        GOOD,
+        ISALCOHOL,
+        INEXISTENT
+    }
+
     /**
      * The class constructor which calls another function
      * to fill
