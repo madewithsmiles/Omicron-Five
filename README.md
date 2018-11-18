@@ -1,2 +1,2 @@
 # Omicron-Five
-Messed up Software Engineering project. 
+Software Engineering I project. 
