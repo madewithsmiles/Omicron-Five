@@ -2,6 +2,7 @@ package edu.ttu.cs.se.applogic;
 
 import edu.ttu.cs.se.entity.InventoryEntity;
 import edu.ttu.cs.se.entity.TransactionLogEntity;
+import edu.ttu.cs.se.systeminterface.MGRPrinterInterface;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -37,7 +38,7 @@ public class ReportLogic
         } catch (IOException e) {
             System.out.println("An I/O Error Occurred");
         }
-
+        MGRPrinterInterface.print(source);
     }
 
 
