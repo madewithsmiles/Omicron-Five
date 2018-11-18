@@ -21,7 +21,7 @@ public class InventoryEntity {
     // curl "https://api.mockaroo.com/api/9f774950?count=1000&key=164ae7f0" > "initialItems1.csv"
     // FINAL DATA: curl "https://api.mockaroo.com/api/0a52da10?count=153&key=164ae7f0" > "initialItemsFinal.csv"
     // It will replace the current value with initialItems
-    static final String DATABASE_NAME = "initialItems1.csv";
+    static final String DATABASE_NAME = "initialItemsFinal.csv";
     static private HashMap<String, Pair<ItemEntity, Integer[]>> items = null;
 
     public enum ItemStatus {
@@ -161,16 +161,29 @@ public class InventoryEntity {
     }
 
     /**
+     * Replace/Add a new ItemEntity and its quantities in the InventoryEntity at the specified name
      *
-     *
-     * @param item
-     * @param quantitiy
-     * @param desiredQuantity
+     * @param item the new ItemEntity
+     * @param quantitiy the new quantity
+     * @param desiredQuantity the new desired quantity
      */
     public static void setInfo(ItemEntity item, int quantitiy, int desiredQuantity) {
         items.put(item.getName(), new Pair<>(item, new Integer[]{quantitiy, desiredQuantity}));
     }
 
+    /**
+     * Gets a custom string representation of the inventory
+     *
+     * @param includeName whether to include the name in the output.
+     * @param includeDescription whether to include the description in the output.
+     * @param includePrice whether to include the price in the output.
+     * @param includeDiscount whether to include the discount in the output.
+     * @param includeAlcohol whether to include whether the item has alcohol.
+     * @param includeQuantity whether to include the quantity in the output.
+     * @param includeDQuantity whether to include the DQuantiy in the output.
+     * @param specifiedSize the number of items to be returned.
+     * @return
+     */
     public static String getString(Boolean includeName, Boolean includeDescription, Boolean includePrice,
                             Boolean includeDiscount, Boolean includeAlcohol, Boolean includeQuantity,
                             Boolean includeDQuantity, Integer specifiedSize) {
