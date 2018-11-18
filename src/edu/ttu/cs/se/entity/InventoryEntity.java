@@ -121,18 +121,45 @@ public class InventoryEntity {
         return items.get(name.toLowerCase()).getKey();
     }
 
+    /**
+     * Retrieves an array list of strings containing the keys to an InventoryEntity
+     *
+     * @return ArrayList the list of all keys to an InventoryEntity
+     */
+
     public static ArrayList<String> getKeys(){
         return new ArrayList<>(items.keySet());
     }
+
+    /**
+     * Checks for the existence of an item in an InventoryEntity
+     *
+     * @param name the name of the item to check
+     * @return      the result of whether the item exists in the InventoryEntity
+     */
 
     public static Boolean exists(String name) {
         return items.containsKey(name);
     }
 
+    /**
+     * Retrieves ItemEntity, quantity and desired quantity given item name
+     *
+     * @param prodName item name to be retrieved
+     * @return ItemEntity, quantity and desired quantity for given item name
+     */
+
     public static Pair<ItemEntity, Integer[]> getInfo(String prodName) {
         return items.get(prodName.toLowerCase());
     }
 
+    /**
+     *
+     *
+     * @param item
+     * @param quantitiy
+     * @param desiredQuantity
+     */
     public static void setInfo(ItemEntity item, int quantitiy, int desiredQuantity) {
         items.put(item.getName(), new Pair<>(item, new Integer[]{quantitiy, desiredQuantity}));
     }
