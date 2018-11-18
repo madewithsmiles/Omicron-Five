@@ -46,15 +46,15 @@ public class InventoryEntity {
             while ((line = br.readLine()) != null) {
 
                 String[] info = line.split(separator);
-                if(!info[0].equals("Name")) {
+                if(!info[0].trim().equals("Name")) {
                     // Parse input
-                    String name = info[0].toLowerCase();
-                    Double price = Double.parseDouble(info[1]);
-                    Boolean alcohol = Double.parseDouble(info[2]) == 1;
+                    String name = info[0].trim().toLowerCase();
+                    Double price = Double.parseDouble(info[1].trim());
+                    Boolean alcohol = Double.parseDouble(info[2].trim()) == 1;
                     String desc = info[3].trim();
-                    Double disc = Double.parseDouble(info[4]);
-                    Integer qty = Integer.parseInt(info[5]);
-                    Integer dQty = Integer.parseInt(info[6]);
+                    Double disc = Double.parseDouble(info[4].trim());
+                    Integer qty = Integer.parseInt(info[5].trim());
+                    Integer dQty = Integer.parseInt(info[6].trim());
                     // Populate the HashMap with parsed input
                     items.put(name,
                             new Pair<>(
