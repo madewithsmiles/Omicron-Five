@@ -110,7 +110,7 @@ public class OrderEntity extends ArrayList<ItemEntity> {
     }
 
     /**
-     * Removes the item in the printed items list at the specified postion.
+     * Removes the item in the printed items list at the specified position.
      *
      * @param itemNum the integer position of the item to be removed.
      */
@@ -154,7 +154,7 @@ public class OrderEntity extends ArrayList<ItemEntity> {
     }
 
     /**
-     * Resets the whole state of the current order.
+     * Resets the state of the current order.
      */
     public void flush() {
         stringRep.setLength(0);

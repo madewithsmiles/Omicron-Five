@@ -14,10 +14,21 @@ import java.util.Date;
 import java.util.Timer;
 
 
+/**
+ * The Main class. The starting point of the system.
+ */
 public class Main {
 
+    /**
+     * The instance of the inventory.
+     */
     private static InventoryEntity inventory;
 
+    /**
+     * The entry point of application.
+     *
+     * @param args the input arguments
+     */
     public static void main(String[] args)
     {
         initSession();
@@ -47,6 +58,16 @@ public class Main {
 
     }
 
+    /**
+     * Initializes the System.
+     *
+     * <p>Instantiates an Inventory instance which in turn sets up
+     * the inventory with data from a csv. Then the CheckoutLogic
+     * initializes many of its different components and sets up
+     * the employee IDs directory from a csv. Finally, it creates a
+     * timer daemon which will create a report using the transaction log
+     * once it is midnight.</p>
+     */
     private static void initSession()
     {
         inventory = new InventoryEntity();
@@ -61,17 +82,22 @@ public class Main {
         timeToRun.scheduleAtFixedRate(runReports,d1,oneDay);
     }
 
+    /**
+     * The UI displayed to the restocker using the restockerUI.
+     */
     private static void restockerMenu() {
         boolean choice = true;
         while (choice) {
             RestockerUI.scanItems();
-            choice = IOHelper.getInputString("Continue? (yes/no)").equalsIgnoreCase("yes");
-
+            choice = IOHelper.getInputString("Continue? (yes/no)")
+                             .equalsIgnoreCase("yes");
         }
         run();
     }
 
-
+    /**
+     * The UI displayed to the client when checking out items.
+     */
     private static void checkoutMenu() {
         CheckoutUI.display(CheckoutUI.DisplayCode.WELCOME, "");
         CheckoutUI.startCheckout();
@@ -99,6 +125,9 @@ public class Main {
         run();
     }
 
+    /**
+     * The UI displayed to the manager.
+     */
     private static void managerMenu() {
         System.out.println("Manager Menu");
         System.out.println("1) View");
@@ -126,7 +155,4 @@ public class Main {
         }
 
     }
-
-
-
 }

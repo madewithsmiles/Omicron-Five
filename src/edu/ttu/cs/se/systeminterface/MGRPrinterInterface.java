@@ -2,6 +2,6 @@ package edu.ttu.cs.se.systeminterface;
 
 public class MGRPrinterInterface {
     public static void print(String report) {
-        System.out.println("REPORT WAS PRINTED. PLEASE GO AND TAKE IT.");
+        System.out.println("ManagerPrinterInterface: Receipt received and sent to supermarket printer.");
     }
 }

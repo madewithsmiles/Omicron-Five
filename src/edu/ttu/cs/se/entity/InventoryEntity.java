@@ -5,7 +5,6 @@ import javafx.util.Pair;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -13,9 +12,8 @@ import java.util.Map;
 import static edu.ttu.cs.se.entity.ItemEntity.COL_SEP;
 
 /**
- * TODO: Write InventoryEntity comments
- * TODO: and add description comments before each function
- * TODO: Generate JavaDoc at the end
+ * The InventoryEntity class is the entity which stores all
+ * items
  */
 public class InventoryEntity {
     // To regenerate data, eval following link after cd in "data":
@@ -25,6 +23,10 @@ public class InventoryEntity {
     static final String DATABASE_NAME = "initialItems1.csv";
     static private HashMap<String, Pair<ItemEntity, Integer[]>> items = null;
 
+    /**
+     * The class constructor which calls another function
+     * to fill
+     */
     public InventoryEntity() {
         initialize();
     }

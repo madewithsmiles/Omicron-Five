@@ -5,6 +5,7 @@ package edu.ttu.cs.se.systeminterface;
  * transactions
  *
  * @author Justin Aguilar
+ * @author Ryan Kelley
  * created on 11/17/2018
  */
 public class BankInterface

@@ -2,6 +2,12 @@ package edu.ttu.cs.se.applogic;
 
 import java.util.Scanner;
 
+/**
+ * Logic class helper for input and output
+ *
+ * @author Ryan Kelley
+ * created on 11/17/2018
+ */
 public class IOHelper {
 
     /**
@@ -98,17 +104,18 @@ public class IOHelper {
                 System.out.println();
                 return output;
             } else {
-                System.out.println(String.format("Invalid input. Input should be in range [%d, %d].", min, max));
+                System.out.println(String.format("Invalid input. Input should be in range [%d, %d].",
+                        min, max));
             }
         }
     }
 
     /**
-     * Displays input prompt and validates user input as int
+     * Displays input prompt and validates user input as int.
      *
-     * @param message message to prompt to user
-     * @param length how long input should be
-     * @return user's validated input
+     * @param message message to prompt to user.
+     * @param length how long input should be.
+     * @return user's validated input.
      */
     public static Integer getCustomInt(String message, int length) {
         Scanner scanner = new Scanner(System.in);
@@ -125,6 +132,9 @@ public class IOHelper {
         }
     }
 
+    /**
+     * Prints a header before any menu.
+     */
     public static void printHeader() {
         System.out.print("\n\n");
         for (int i = 0; i < 50; i++) {
@@ -133,6 +143,9 @@ public class IOHelper {
         System.out.println();
     }
 
+    /**
+     * Prints a footer.
+     */
     public static void printFooter() {
         for (int i = 0; i < 50; i++) {
             System.out.print("-");

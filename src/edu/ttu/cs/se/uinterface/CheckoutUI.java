@@ -87,7 +87,8 @@ public class CheckoutUI {
         boolean paymentStatus = false;
         while (!paymentStatus) {
             display(DisplayCode.TOTAL, String.valueOf(CheckoutLogic.getOrderTotal()));
-            int pmt = IOHelper.getInputInt("Enter your payment method: \n1. Cash\n2. Credit\n3. Debit", false);
+            int pmt = IOHelper.getInputInt("Enter your payment method: \n1. Cash\n2. Credit" +
+                                            "\n3. Debit", false);
             int cardNumber;
             switch (pmt) {
                 case 1:

@@ -5,6 +5,12 @@ import edu.ttu.cs.se.applogic.RestockInventoryLogic;
 import edu.ttu.cs.se.entity.InventoryEntity;
 import edu.ttu.cs.se.entity.ItemEntity;
 
+/**
+ * Encapsulates all restocker user interface functions
+ *
+ * @author Ryan Kelley
+ * created on 11/17/2018
+ */
 public class RestockerUI {
 
 
@@ -13,8 +19,8 @@ public class RestockerUI {
      */
     public static void scanItems() {
         System.out.println(InventoryEntity.getString(true, false, false,
-                                                   false, false, true,
-                                                   true, -1));
+                false, false, true,
+                true, -1));
         String itemName = IOHelper.getInputString("Enter item name");
         int quantity = IOHelper.getInputInt("Enter quantity", false);
         RestockInventoryLogic.processRestock(itemName, quantity);
@@ -22,6 +28,9 @@ public class RestockerUI {
 
     /**
      * Prompts restocker for new item details then adds that item to the inventory
+     *
+     * @param name name of item to add to inventory
+     * @param quantity amount of item to add to inventory
      */
     public static void newItem(String name, int quantity) {
         double price = IOHelper.getInputDouble("Price", false);

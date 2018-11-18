@@ -6,6 +6,13 @@ import edu.ttu.cs.se.entity.InventoryEntity;
 
 import java.util.ArrayList;
 
+
+/**
+ * Encapsulates all manager interface functions
+ *
+ * @author Bonny Barragan
+ * created on 11/17/2018
+ */
 public class ManagerUI {
 
 
@@ -25,6 +32,11 @@ public class ManagerUI {
 
     }
 
+    /**
+     * Prints contents of the current inventory
+     *
+     * @param numItems number of items to print from inventory
+     */
     public static void viewInventory(int numItems) {
         ArrayList<String> items = InventoryEntity.getKeys();
         for (int j = 0; j < numItems; j++) {

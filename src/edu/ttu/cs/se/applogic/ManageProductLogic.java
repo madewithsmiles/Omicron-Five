@@ -4,6 +4,12 @@ import edu.ttu.cs.se.entity.InventoryEntity;
 import edu.ttu.cs.se.entity.ItemEntity;
 import javafx.util.Pair;
 
+/**
+ * Application logic for manager submenu (interacting with inventory)
+ *
+ * @author Bonny Barragan
+ * created on 11/17/2018
+ */
 public class ManageProductLogic {
 
     /**
