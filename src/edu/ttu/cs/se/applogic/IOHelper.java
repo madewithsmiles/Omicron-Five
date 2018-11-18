@@ -1,5 +1,6 @@
 package edu.ttu.cs.se.applogic;
 
+import java.text.NumberFormat;
 import java.util.Scanner;
 
 /**
@@ -176,6 +177,10 @@ public class IOHelper {
             System.out.print("-");
         }
         System.out.println();
+    }
+
+    public static String formatCurrency(Double num) {
+        return NumberFormat.getCurrencyInstance().format(num);
     }
 
 }

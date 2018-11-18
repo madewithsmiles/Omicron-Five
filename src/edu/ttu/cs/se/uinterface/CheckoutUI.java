@@ -4,6 +4,7 @@ import edu.ttu.cs.se.applogic.CheckoutLogic;
 import edu.ttu.cs.se.applogic.IOHelper;
 import edu.ttu.cs.se.entity.InventoryEntity;
 import edu.ttu.cs.se.systeminterface.ReceiptPrinterInterface;
+
 import java.text.DecimalFormat;
 
 /**
@@ -37,8 +38,8 @@ public class CheckoutUI {
         switch (code) {
             case NORMAL:
                 output = "Your order: \n\n"
-                        + CheckoutLogic.getOrderContent() + "\n\n"
-                        + new DecimalFormat("###.##").format(CheckoutLogic.getSubTotal())
+                        + CheckoutLogic.getOrderContent() + "\n\nYour total is: "
+                        + IOHelper.formatCurrency(CheckoutLogic.getSubTotal())
                         + "\n\n1. Scan Item\n2. Total & Payment\n3. Cancel Order\n";
                 break;
             case WELCOME:
@@ -56,17 +57,14 @@ public class CheckoutUI {
     /**
      * Implements item scan display and input processes.
      */
-    public static void scanItem()
-    {
+    public static void scanItem() {
         String item = IOHelper.getInputString("Enter your item");
         InventoryEntity.ItemStatus status = CheckoutLogic.addItem(item);
-        if (!status.equals(InventoryEntity.ItemStatus.GOOD))
-        {
+        if (!status.equals(InventoryEntity.ItemStatus.GOOD)) {
             switch (status) {
                 case ISALCOHOL:
                     String auth = IOHelper.getInputString("Employee Authorization Required");
-                    while (!CheckoutLogic.verifyEmployeeID(auth))
-                    {
+                    while (!CheckoutLogic.verifyEmployeeID(auth)) {
                         System.out.println("Error in code...");
                         auth = IOHelper.getInputString("Employee Authorization Required");
                     }
@@ -91,13 +89,12 @@ public class CheckoutUI {
      * Acts as a "total" button used by the customer to end the checkout and pay for
      * the items.
      */
-    public static void total()
-    {
+    public static void total() {
         boolean paymentStatus = false;
         while (!paymentStatus) {
-            display(DisplayCode.TOTAL, String.valueOf(CheckoutLogic.getOrderTotal()));
+            display(DisplayCode.TOTAL, IOHelper.formatCurrency(CheckoutLogic.getOrderTotal()));
             int pmt = IOHelper.getInputInt("Enter your payment method: \n1. Cash\n2. Credit" +
-                                            "\n3. Debit", false);
+                    "\n3. Debit\nChoice", false);
             int cardNumber;
             switch (pmt) {
                 case 1:

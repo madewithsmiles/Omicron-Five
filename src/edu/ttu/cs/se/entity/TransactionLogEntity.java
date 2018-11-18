@@ -1,4 +1,6 @@
 package edu.ttu.cs.se.entity;
+import edu.ttu.cs.se.applogic.IOHelper;
+
 import java.text.DecimalFormat;
 
 /**
@@ -27,7 +29,7 @@ public class TransactionLogEntity {
      * @return the transaction revenue formatted as a currency string
      */
     public static String getRevenue() {
-        return new DecimalFormat("$#.00").format(revenue);
+        return IOHelper.formatCurrency(revenue);
     }
 
     /**

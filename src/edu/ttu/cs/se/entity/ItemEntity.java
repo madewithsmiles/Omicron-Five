@@ -1,5 +1,7 @@
 package edu.ttu.cs.se.entity;
 
+import edu.ttu.cs.se.applogic.IOHelper;
+
 /**
  * Entity storing the information of an item in inventory.
  *
@@ -199,7 +201,7 @@ public class ItemEntity {
         String[] info = new String[]{
                 prepareString(String.valueOf(getName()), OUT_LENGTH),
                 prepareString(String.valueOf(getDesc()), OUT_LENGTH),
-                String.valueOf(getPrice()),
+                IOHelper.formatCurrency(getPrice()),
                 String.valueOf(getAlcohol()),
                 String.valueOf(getDiscount())};
 

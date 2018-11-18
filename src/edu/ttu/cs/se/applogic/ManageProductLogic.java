@@ -28,7 +28,7 @@ public class ManageProductLogic {
             case "price":
                 Double newPrice = IOHelper.getInputDouble("Enter new price", false);
                 tempItem.setPrice(newPrice);
-                System.out.println("New Price: " + newPrice);
+                System.out.println("New Price: " + IOHelper.formatCurrency(newPrice));
                 break;
             case "description":
                 String newDescription = IOHelper.getInputString("Enter new description");
