@@ -19,6 +19,7 @@ public class InventoryEntity {
     // To regenerate data, eval following link after cd in "data":
     // curl "https://api.mockaroo.com/api/e7ea3110?count=1000&key=164ae7f0" > "initialItems.csv"
     // curl "https://api.mockaroo.com/api/9f774950?count=1000&key=164ae7f0" > "initialItems1.csv"
+    // FINAL DATA: curl "https://api.mockaroo.com/api/0a52da10?count=153&key=164ae7f0" > "initialItemsFinal.csv"
     // It will replace the current value with initialItems
     static final String DATABASE_NAME = "initialItems1.csv";
     static private HashMap<String, Pair<ItemEntity, Integer[]>> items = null;
