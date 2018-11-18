@@ -15,5 +15,5 @@ public class ReceiptPrinterInterface {
      */
     public static void printReceipt(String receipt) {
         System.out.println("ReceiptPrinterInterface: Receipt received and sent to receipt printer.");
-    };
+    }
 }

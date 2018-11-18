@@ -270,7 +270,7 @@ public class CheckoutLogic {
         receipt.append(currentOrder.toString());
 
         if(paidByCard) {
-            receipt.append("LAST FOUR DIGITS OF CARD: ").append(lastFourDigits);
+            receipt.append("LAST FOUR DIGITS OF CARD: ").append(lastFourDigits).append("\n");
         }
 
         for (int i = 0; i < OrderEntity.ROW_LENGTH; i++) {
